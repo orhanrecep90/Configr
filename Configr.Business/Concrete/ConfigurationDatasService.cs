@@ -1,4 +1,5 @@
 ﻿using Configr.Business.Abstract;
+using Configr.Business.Queue;
 using Configr.DataAccess.Abstract;
 using Configr.Entities.Concrete;
 using System;
@@ -12,30 +13,28 @@ namespace Configr.Business.Concrete
     public class ConfigurationDatasService : IConfigurationDatasService
     {
         private readonly IConfigurationDatasDal _configurationDatasDal;
+        private readonly IPublisher _publisher;
 
-        public ConfigurationDatasService(IConfigurationDatasDal configurationDatasDal)
+        public ConfigurationDatasService(IConfigurationDatasDal configurationDatasDal, IPublisher publisher)
         {
             _configurationDatasDal = configurationDatasDal;
+            _publisher = publisher;
         }
 
-        public async Task Add(ConfigurationDatas configurationDatas)
+        public async Task<ConfigurationDatas> Add(ConfigurationDatas configurationDatas)
         {
-            if (configurationDatas.IsActive)
-            {
-                var sameNameActiveData = (await _configurationDatasDal.GetAll(x => x.ApplicationName == configurationDatas.ApplicationName && x.IsActive==true)).FirstOrDefault();
-                if (sameNameActiveData != null)
-                {
-                    sameNameActiveData.IsActive = false;
-                   await this.Update(sameNameActiveData);
-                }
-            }
+       
             await _configurationDatasDal.Add(configurationDatas);
+            _publisher.Publish(new ConfigurationDataWrapper { ConfigurationDatas = configurationDatas, Operation = "C" });
+            return configurationDatas;
         }
 
-        public async Task Delete(int ID)
+        public async Task<ConfigurationDatas> Delete(int ID)
         {
-            var data =await this.GetById(ID);
+            var data = await this.GetById(ID);
             await _configurationDatasDal.Delete(data);
+            _publisher.Publish(new ConfigurationDataWrapper { ConfigurationDatas = data, Operation = "D" });
+            return data;
         }
 
         public async Task<ConfigurationDatas> GetById(int id)
@@ -48,23 +47,20 @@ namespace Configr.Business.Concrete
             return await _configurationDatasDal.GetAll();
         }
 
+        public async Task<List<ConfigurationDatas>> GetAllByApplicationName(string name)
+        {
+            return await _configurationDatasDal.GetAll(x => x.ApplicationName == name && x.IsActive);
+        }
         public async Task<List<ConfigurationDatas>> GetAllByName(string name)
         {
             return await _configurationDatasDal.GetAll(x => x.Name == name);
         }
 
-        public async Task Update(ConfigurationDatas configurationDatas)
+        public async Task<ConfigurationDatas> Update(ConfigurationDatas configurationDatas)
         {
-            if (configurationDatas.IsActive)
-            {
-                var sameNameActiveData = (await _configurationDatasDal.GetAll(x => x.ApplicationName == configurationDatas.ApplicationName && x.IsActive == true)).FirstOrDefault();
-                if (sameNameActiveData != null)
-                {
-                    sameNameActiveData.IsActive = false;
-                    await _configurationDatasDal.Update(sameNameActiveData);
-                }
-            }
             await _configurationDatasDal.Update(configurationDatas);
+            _publisher.Publish(new ConfigurationDataWrapper { ConfigurationDatas = configurationDatas, Operation = "U" });
+            return configurationDatas;
         }
     }
 }

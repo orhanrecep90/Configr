@@ -1,12 +1,15 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Configr.Business.DependencyResolver;
+using RabbitMQ.Client;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton(sp => new ConnectionFactory { Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")) });
 builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacBusinessModule()));
 
 var app = builder.Build();

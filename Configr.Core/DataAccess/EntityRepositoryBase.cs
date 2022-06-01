@@ -14,23 +14,25 @@ namespace Configr.Core.DataAccess
         where TContext : DbContext, new()
     {
 
-        public async Task Add(TEntity entity)
+        public async Task<TEntity> Add(TEntity entity)
         {
             using (var context=new TContext())
             {
                var ent= context.Entry(entity);
                 ent.State = EntityState.Added;
                 await context.SaveChangesAsync();
+                return entity;
             }
         }
 
-        public async Task Delete(TEntity entity)
+        public async Task<TEntity> Delete(TEntity entity)
         {
             using (var context = new TContext())
             {
                 var ent = context.Entry(entity);
                 ent.State = EntityState.Deleted;
                 await context.SaveChangesAsync();
+                return entity;
             }
         }
 
@@ -52,13 +54,14 @@ namespace Configr.Core.DataAccess
             }
         }
 
-        public async Task Update(TEntity entity)
+        public async Task<TEntity> Update(TEntity entity)
         {
             using (var context = new TContext())
             {
                 var ent = context.Entry(entity);
                 ent.State = EntityState.Modified;
                 await context.SaveChangesAsync();
+                return entity;
             }
         }
 

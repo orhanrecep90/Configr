@@ -8,11 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
-    <PackageReference Include="RabbitMQ.Client" Version="6.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Configr.DataAccess\Configr.DataAccess.csproj" />
+    <ProjectReference Include="..\Configr.Business\Configr.Business.csproj" />
     <ProjectReference Include="..\Configr.Entities\Configr.Entities.csproj" />
   </ItemGroup>
 

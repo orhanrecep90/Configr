@@ -10,6 +10,7 @@ namespace Configr.DataAccess.Concrete.EntityFramework.Contexts
 {
     public class ConfigrContext:DbContext
     {
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Configr;Integrated Security=True");

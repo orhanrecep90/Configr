@@ -43,8 +43,7 @@ namespace Configr.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _configurationDatasService.Add(configurationDatas);
-
+                var result = await _configurationDatasService.Add(configurationDatas);
                 return RedirectToAction(nameof(Index));
             }
             return View(configurationDatas);
@@ -63,7 +62,7 @@ namespace Configr.WebApp.Controllers
             {
                 return View(data);
             }
-            await _configurationDatasService.Update(data);
+           var result= await _configurationDatasService.Update(data);
 
             return RedirectToAction(nameof(Index));
         }
@@ -72,7 +71,7 @@ namespace Configr.WebApp.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            await _configurationDatasService.Delete(id);
+           var result= await _configurationDatasService.Delete(id);
 
             return RedirectToAction(nameof(Index));
         }

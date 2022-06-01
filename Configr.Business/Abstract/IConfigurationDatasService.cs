@@ -12,8 +12,9 @@ namespace Configr.Business.Abstract
         Task<ConfigurationDatas> GetById(int ID);
         Task<List<ConfigurationDatas>> GetAll();
         Task<List<ConfigurationDatas>> GetAllByName(string name);
-        Task Add(ConfigurationDatas configurationDatas);
-        Task Update(ConfigurationDatas configurationDatas);
-        Task Delete(int ID);
+        Task<List<ConfigurationDatas>> GetAllByApplicationName(string name);
+        Task<ConfigurationDatas> Add(ConfigurationDatas configurationDatas);
+        Task<ConfigurationDatas> Update(ConfigurationDatas configurationDatas);
+        Task<ConfigurationDatas> Delete(int ID);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Configr.Business.Abstract;
 using Configr.Business.Concrete;
+using Configr.Business.Queue;
 using Configr.DataAccess.Abstract;
 using Configr.DataAccess.Concrete.EntityFramework;
 using System;
@@ -17,6 +18,7 @@ namespace Configr.Business.DependencyResolver
         {
             builder.RegisterType<ConfigurationDatasService>().As<IConfigurationDatasService>();
             builder.RegisterType<EfConfigurationDatasDal>().As<IConfigurationDatasDal>();
+            builder.RegisterType<RabbitMQPublisher>().As<IPublisher>();
         }
     }
 }
