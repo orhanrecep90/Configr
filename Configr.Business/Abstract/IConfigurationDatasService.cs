@@ -14,6 +14,6 @@ namespace Configr.Business.Abstract
         Task<List<ConfigurationDatas>> GetAllByName(string name);
         Task Add(ConfigurationDatas configurationDatas);
         Task Update(ConfigurationDatas configurationDatas);
-        Task Delete(ConfigurationDatas configurationDatas);
+        Task Delete(int ID);
     }
 }

@@ -1,8 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "IndexAsync";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form class="row g-3" asp-controller="Home" asp-action="ListData">
+  <div class="col-auto">
+    <label for="inputPassword2" class="visually-hidden">Password</label>
+    <input type="text" class="form-control" id="Name" placeholder="Name" name="Name">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Get List</button>
+  </div>
+</form>
+

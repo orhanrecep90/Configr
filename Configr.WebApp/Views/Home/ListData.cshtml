@@ -1,0 +1,40 @@
+﻿@model List<Configr.Entities.Concrete.ConfigurationDatas>
+@{
+	ViewData["Title"] = "ListData";
+	int counter = 0;
+}
+
+<h1>ListData</h1>
+
+<a asp-controller="Home" asp-action="Create" class="btn btn-primary mb-3">Create</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Name</th>
+			<th scope="col">Type</th>
+			<th scope="col">Value</th>
+			<th scope="col">Is Active</th>
+			<th scope="col">Application Name</th>
+			<th scope="col">Operations</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			counter++;
+			<tr>
+				<th scope="row">@counter</th>
+				<td>@item.Name</td>
+				<td>@item.Type</td>
+				<td>@item.Value</td>
+				<td>@item.IsActive</td>
+				<td>@item.ApplicationName</td>
+				<td>
+					<a asp-action="Update" asp-route-id="@item.ID" class="btn btn-success btn-sm">Update</a>
+					<a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
