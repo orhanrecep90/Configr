@@ -9,12 +9,10 @@ namespace Configr.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IConfigurationDatasService _configurationDatasService;
 
-        public HomeController(ILogger<HomeController> logger, IConfigurationDatasService configurationDatasService)
+        public HomeController( IConfigurationDatasService configurationDatasService)
         {
-            _logger = logger;
             _configurationDatasService = configurationDatasService;
         }
 

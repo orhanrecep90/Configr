@@ -3,21 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configr.Entities", "Configr.Entities\Configr.Entities.csproj", "{4DD160E8-E386-4463-8EB4-5141F6F9B2A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configr.Entities", "Configr.Entities\Configr.Entities.csproj", "{4DD160E8-E386-4463-8EB4-5141F6F9B2A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configr.DataAccess", "Configr.DataAccess\Configr.DataAccess.csproj", "{57416AD9-90C7-4183-8032-5EDA8677C83C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configr.DataAccess", "Configr.DataAccess\Configr.DataAccess.csproj", "{57416AD9-90C7-4183-8032-5EDA8677C83C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configr.Business", "Configr.Business\Configr.Business.csproj", "{E16DF40B-A392-4807-8823-78404540D736}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configr.Business", "Configr.Business\Configr.Business.csproj", "{E16DF40B-A392-4807-8823-78404540D736}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configr.Core", "Configr.Core\Configr.Core.csproj", "{93AD5957-00BE-4CDD-B0CD-DD77BC077E13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configr.Core", "Configr.Core\Configr.Core.csproj", "{93AD5957-00BE-4CDD-B0CD-DD77BC077E13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configr.WebApp", "Configr.WebApp\Configr.WebApp.csproj", "{BFC6A1B2-535D-425C-92E7-C7626324C030}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configr.WebApp", "Configr.WebApp\Configr.WebApp.csproj", "{BFC6A1B2-535D-425C-92E7-C7626324C030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configr.ConfigurationReaderLibrary", "Configt.ConfigurationReaderLibrary\Configr.ConfigurationReaderLibrary.csproj", "{47AD5B1C-DB1C-438E-B5DD-8CB2F1BFBB09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configr.ConfigurationReaderLibrary", "Configt.ConfigurationReaderLibrary\Configr.ConfigurationReaderLibrary.csproj", "{47AD5B1C-DB1C-438E-B5DD-8CB2F1BFBB09}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6A92181E-987E-486A-9DF2-6ED28C10A2EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configr.ConfigurationReaderLibrary.ConsoleApp", "Configr.ConfigurationReaderLibrary.ConsoleApp\Configr.ConfigurationReaderLibrary.ConsoleApp.csproj", "{9205CA1A-632D-4225-865C-4B74140F63D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configr.ConfigurationReaderLibrary.ConsoleApp", "Configr.ConfigurationReaderLibrary.ConsoleApp\Configr.ConfigurationReaderLibrary.ConsoleApp.csproj", "{9205CA1A-632D-4225-865C-4B74140F63D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configr.WebApp.Test", "Configr.WebApp.Test\Configr.WebApp.Test.csproj", "{A787E896-9140-4A60-BC79-F120CAEBA165}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{9205CA1A-632D-4225-865C-4B74140F63D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9205CA1A-632D-4225-865C-4B74140F63D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9205CA1A-632D-4225-865C-4B74140F63D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A787E896-9140-4A60-BC79-F120CAEBA165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A787E896-9140-4A60-BC79-F120CAEBA165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A787E896-9140-4A60-BC79-F120CAEBA165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A787E896-9140-4A60-BC79-F120CAEBA165}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

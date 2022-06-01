@@ -1,8 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Configt.ConfigurationReaderLibrary;
+﻿using Configt.ConfigurationReaderLibrary;
 
 
-ConfigurationReader _configurationReader = new ConfigurationReader("SERVICE-A", "", 1000 * 60*60);
+ConfigurationReader _configurationReader = new ConfigurationReader("SERVICE-A", "", 10 * 60 * 1000);
 while (true)
 {
     Thread.Sleep(2000);
